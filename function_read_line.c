@@ -1,10 +1,10 @@
 #include "functions.h"
 
-char *read_line(void)
+char *read_line(ssize_t *c)
 {
 	char *line = NULL;
 	size_t bufsize = 0;
 
-	getline(&line, &bufsize, stdin);
+	*c = getline(&line, &bufsize, stdin);
 	return (line);
 }

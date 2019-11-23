@@ -20,7 +20,7 @@ char *str_concat(char *s1, char *s2);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_getenv(char *name, char **env);
-char *read_line(void);
+char *read_line(ssize_t *c);
 char **words(char *line, char *sep);
 token_t *add_nodeint_end(token_t **head, char *token);
 

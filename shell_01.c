@@ -4,8 +4,9 @@ int main(int argc, char *argv[], char **env)
 {
 	char *cont;
 	char **tokenizado;
-	int status, val_fd = 0, comp = 0;
+	int status, val_fd = 0, comp = 0, i = 0;
 	char *result;
+	ssize_t c;
 	pid_t hijo;
 
 	while (1)
@@ -22,8 +23,13 @@ int main(int argc, char *argv[], char **env)
 			if (argc == 1)
 			{
 				write(1, "#cisfun$ ", 10);
-				cont = read_line();
-			if (*cont == '\n' || (*cont == -1)) /* enter */
+				cont = read_line(&c);
+				if (c == EOF)
+				{
+					kill(hijo, SIGINT);
+					exit(1);
+				}
+				if (*cont == '\n') /* enter */
 				return (1);
 				tokenizado = words(cont, " \n\a\b\r\t\0");
 				comp = _strcmp(tokenizado[0], "exit");
@@ -31,6 +37,16 @@ int main(int argc, char *argv[], char **env)
 				{
 					kill(hijo, SIGINT);
 					exit(1);
+				}
+				comp = _strcmp(tokenizado[0], "env");
+				if (comp == 0)
+				{
+					while (env[i] != NULL)
+					{
+						write(1, env[i], _strlen(env[i]));
+						write(1, "\n", 2);
+						i++;
+					}
 				}
 				if (access(cont,X_OK) == -1)
 				{
