@@ -4,7 +4,7 @@ int main(int argc, char *argv[], char **env)
 {
 	char *cont;
 	char **tokenizado;
-	int status, val_fd = 0, comp = 0;
+	int status, val_fd = 0, comp = 0, i = 0;
 	char *result;
 	pid_t hijo;
 
@@ -31,6 +31,16 @@ int main(int argc, char *argv[], char **env)
 				{
 					kill(hijo, SIGINT);
 					exit(1);
+				}
+				comp = _strcmp(tokenizado[0], "env");
+				if (comp == 0)
+				{
+					while (env[i] != NULL)
+					{
+						write(1, env[i], _strlen(env[i]));
+						write(1, "\n", 2);
+						i++;
+					}
 				}
 				if (access(cont,X_OK) == -1)
 				{
