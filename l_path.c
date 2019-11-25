@@ -3,19 +3,43 @@
 char *l_path(char *cont, char **env)
 {
 	char *value;
-	char **token;
-	token_t *head;
+	/*char *parameter = "ls";*/
+	char *car = "/";
+	char *newpath = NULL;
+	char **token = NULL;
+	int compare = 1;
 	int i = 0;
-	char *result = NULL;
+	
+	/*char *result = NULL;*/
 
 	value = _getenv("PATH", env);
 	token = words(value, ":");
-	head = NULL;
 	while (token[i])
+        {
+               /* newpath = str_concat(token[i], "/");*/
+                newpath = str_concat(token[i], car, cont);
+                compare = access(newpath, X_OK);
+                if (compare == 0)
+                {
+			free(token);
+			return (newpath);
+			/*free(newpath);*/
+			break;
+                }
+                else
+                {
+			free(newpath);
+                        i++;
+                }
+        }
+
+	/*while (token[i])
 	{
-		add_nodeint_end(&head, token[i]);
+		free(token[i]);
+		printf("%s\n", token[i]);
 		i++;
-	}
-		result = concatenate(head, cont);
-	return(result);
+	}*/
+	free(token);
+	/*	result = concatenate(head, cont);*/
+	return(newpath);
 }
