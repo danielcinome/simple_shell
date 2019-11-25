@@ -5,7 +5,7 @@ int main(int argc, char *argv[], char **env)
 	char *cont;
 	char **tokenizado;
 	int status, val_fd = 0, comp = 0, i = 0;
-	/*char *result;*/
+	char *result;
 	ssize_t c;
 	pid_t hijo;
 
@@ -39,6 +39,8 @@ int main(int argc, char *argv[], char **env)
 				comp = _strcmp(tokenizado[0], "exit");
 				if (comp == 0)
 				{
+					free(tokenizado);
+					free(cont);
 					kill(hijo, SIGINT);
 					exit(1);
 				}
@@ -52,20 +54,21 @@ int main(int argc, char *argv[], char **env)
 						i++;
 					}
 				}
-				/*if (access(cont,X_OK) == -1)
+				/*l_path(env);*/
+				if (access(cont,X_OK) == -1)
 				{
 					result = l_path(cont, env);
 					if (execve(result, tokenizado, NULL) == -1)
 					{
 						free(result);
-						free(cont);  
+						free(cont);
 						free(tokenizado);
 						perror(argv[0]);
 						if (val_fd == 0)
 							kill(hijo, SIGINT);
 						return (-1);
 					}
-				}*/
+				}
 				if (execve(tokenizado[0], tokenizado, NULL) == -1)
 				{
 					free(cont); /*memoria liberada */
