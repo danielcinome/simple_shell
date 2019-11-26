@@ -4,10 +4,11 @@ char **words(char *line, char *sep)
 {
 	char **tokens;
 	char *word;
-	int i = 0;
+	int i = 0, val = 0;
 	/*int lenght = _strlen(line);*/
 
-	tokens = malloc(sizeof(char *) * (*line));
+	val = _strlen(line);
+	tokens = malloc(sizeof(char *) * val);
 	if (tokens == NULL)
 		return (NULL);
 	word = strtok(line, sep);

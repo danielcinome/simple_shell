@@ -14,16 +14,14 @@ typedef struct token_s
 	struct token_s *next;
 } token_t;
 
-void free_list(token_t *head);
-void free_memory(char **grid);
+/*void free_list(token_t *head);
+void free_memory(char **grid);*/
 char *l_path(char *cont, char **env);
-char* concatenate(token_t *h, char *parameter);
 char *str_concat(char *s1, char *s2, char *s3);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_getenv(char *name, char **env);
 char *read_line(ssize_t *c);
 char **words(char *line, char *sep);
-token_t *add_nodeint_end(token_t **head, char *token);
 
 #endif

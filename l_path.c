@@ -21,14 +21,14 @@ char *l_path(char *cont, char **env)
                 compare = access(newpath, X_OK);
                 if (compare == 0)
                 {
-			free(token);
+			/*free(token);*/
 			return (newpath);
 			/*free(newpath);*/
 			break;
                 }
                 else
                 {
-			free(newpath);
+			/*free(newpath);*/
                         i++;
                 }
         }
@@ -39,7 +39,7 @@ char *l_path(char *cont, char **env)
 		printf("%s\n", token[i]);
 		i++;
 	}*/
-	free(token);
+	/*free(token);*/
 	/*	result = concatenate(head, cont);*/
-	return(newpath);
+	return(NULL);
 }
