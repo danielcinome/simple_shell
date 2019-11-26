@@ -26,21 +26,21 @@ int main(int argc, char *argv[], char **env)
 				cont = read_line(&c);
 				if (c == EOF)
 				{
-					free(cont); /* memoria liberada */
+					/*free(cont);*/
 					kill(hijo, SIGINT);
 					exit(1);
 				}
 				if (*cont == '\n') /* enter */
 				{
-					free(cont); /* memoria liberada */
+					/*free(cont);*/
 					return (1);
 				}
 				tokenizado = words(cont, " \n\a\b\r\t\0");
 				comp = _strcmp(tokenizado[0], "exit");
 				if (comp == 0)
 				{
-					free(tokenizado);
-					free(cont);
+					/*free(tokenizado);
+					free(cont);*/
 					kill(hijo, SIGINT);
 					exit(1);
 				}
@@ -58,11 +58,21 @@ int main(int argc, char *argv[], char **env)
 				if (access(cont,X_OK) == -1)
 				{
 					result = l_path(cont, env);
+/*if (result == NULL)
+{
+ free(result);
+ free(cont);
+ free(tokenizado);
+ perror(argv[0]);
+ if (val_fd == 0)
+ kill(hijo, SIGINT);
+ return (-1);
+}*/
 					if (execve(result, tokenizado, NULL) == -1)
 					{
-						free(result);
+						/*free(result);
 						free(cont);
-						free(tokenizado);
+						free(tokenizado);*/
 						perror(argv[0]);
 						if (val_fd == 0)
 							kill(hijo, SIGINT);
@@ -71,8 +81,9 @@ int main(int argc, char *argv[], char **env)
 				}
 				if (execve(tokenizado[0], tokenizado, NULL) == -1)
 				{
-					free(cont); /*memoria liberada */
-					free(tokenizado); /* memoria liberada */
+					/*free(result);
+					free(cont);
+					free(tokenizado);*/
 					perror(argv[0]);
 					if (val_fd == 0)
 						kill(hijo, SIGINT);
