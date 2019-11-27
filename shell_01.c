@@ -2,10 +2,9 @@
 
 int main(int argc, char *argv[], char **env)
 {
-	char *cont;
+	char *cont, *result;
 	char **tokenizado;
 	int status, val_fd = 0, comp = 0, i = 0;
-	char *result;
 	ssize_t c;
 	pid_t hijo;
 
@@ -77,6 +76,5 @@ int main(int argc, char *argv[], char **env)
 			}
 		}
 	}
-	
 	return (1);
 }

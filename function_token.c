@@ -1,5 +1,10 @@
 #include "functions.h"
-
+/**
+ * words - This function will tokenize and return the array of strings
+ * @line: What is previously read by the input
+ * @sep: The separator that we want to tokenize from
+ * Return: A pointer to pointer of chars
+ */
 char **words(char *line, char *sep)
 {
 	char **tokens;

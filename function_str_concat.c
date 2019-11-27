@@ -1,8 +1,9 @@
 #include "functions.h"
 /**
- * str_concat - This will concatenate two strings
+ * str_concat - This will concatenate three strings
  * @s1: First string
  * @s2: Second string
+ * @s3: Third string
  * Return: a pointer or NULL
  */
 char *str_concat(char *s1, char *s2, char *s3)
@@ -12,17 +13,11 @@ char *str_concat(char *s1, char *s2, char *s3)
 	char *dest;
 
 	if (s1 == NULL)
-	{
 		s1 = "";
-	}
 	if (s2 == NULL)
-	{
 		s2 = "";
-	}
-	 if (s3 == NULL)
-        {
-                s3 = "";
-        }
+	if (s3 == NULL)
+		s3 = "";
 	tam1 = _strlen(s1);
 	tam2 = _strlen(s2);
 	tam3 = _strlen(s3);
@@ -45,8 +40,8 @@ char *str_concat(char *s1, char *s2, char *s3)
 			dest[i + j] = s2[j];
 		}
 		for (k = 0; k <= tam3; k++)
-                {
-                        dest[i + j + k] = s3[k];
+		{
+			dest[i + j + k] = s3[k];
 		}
 	}
 	return (dest);

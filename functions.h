@@ -8,14 +8,6 @@
 #include <unistd.h>
 #include <signal.h>
 
-typedef struct token_s
-{
-	char *str;
-	struct token_s *next;
-} token_t;
-
-/*void free_list(token_t *head);
-void free_memory(char **grid);*/
 char *l_path(char *cont, char **env);
 char *str_concat(char *s1, char *s2, char *s3);
 int _strcmp(char *s1, char *s2);
