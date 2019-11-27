@@ -35,7 +35,7 @@ int main(int argc, char *argv[], char **env)
 					/*free(cont);*/
 					return (1);
 				}
-				tokenizado = words(cont, " \n\a\b\r\t\0");
+				tokenizado = words(cont, " \n\r\t");
 				comp = _strcmp(tokenizado[0], "exit");
 				if (comp == 0)
 				{
@@ -55,9 +55,9 @@ int main(int argc, char *argv[], char **env)
 					}
 				}
 				/*l_path(env);*/
-				if (access(cont,X_OK) == -1)
+				if (access(tokenizado[0],X_OK) == -1)
 				{
-					result = l_path(cont, env);
+					result = l_path(tokenizado[0], env);
 /*if (result == NULL)
 {
  free(result);
@@ -79,16 +79,16 @@ int main(int argc, char *argv[], char **env)
 						return (-1);
 					}
 				}
-				if (execve(tokenizado[0], tokenizado, NULL) == -1)
+				/*if (execve(tokenizado[0], tokenizado, NULL) == -1)
 				{
-					/*free(result);
+					free(result);
 					free(cont);
-					free(tokenizado);*/
+					free(tokenizado);
 					perror(argv[0]);
 					if (val_fd == 0)
 						kill(hijo, SIGINT);
 					return (-1);
-				}
+				}*/
 			}
 		}
 		else

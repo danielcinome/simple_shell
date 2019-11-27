@@ -16,12 +16,11 @@ char *_getenv(char *name, char **env)
 	while (save[i] != NULL)
 	{
 		tokenizado = words(*(save + i), "=");
-		/*printf("%s = %s\n",tokenizado[0], tokenizado[1]);*/
 			if (_strcmp(tokenizado[0], name) == 0)
 			{
 				break;
 			}
-		free(tokenizado);
+		/*free(tokenizado);*/
 		i++;
 	}
 	return (tokenizado[1]);

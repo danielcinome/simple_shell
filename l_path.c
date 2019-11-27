@@ -39,7 +39,7 @@ char *l_path(char *cont, char **env)
 		printf("%s\n", token[i]);
 		i++;
 	}*/
-	/*free(token);*/
+	free(token);
 	/*	result = concatenate(head, cont);*/
-	return(NULL);
+	return(cont);
 }
