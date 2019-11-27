@@ -1,5 +1,7 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
+#define _POSIX_SOURCE
+#define _GNU_SOURCE
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdio.h>
