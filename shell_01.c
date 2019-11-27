@@ -54,13 +54,12 @@ int main(int argc, char *argv[], char **env)
 						i++;
 					}
 				}
-				/*l_path(env);*/
 					result = l_path(tokenizado[0], env);
 					if (execve(result, tokenizado, NULL) == -1)
 					{
-						/*free(result);
-						free(cont);
-						free(tokenizado);*/
+						free(result);
+						/*free(cont);*/
+						free(tokenizado);
 						perror(argv[0]);
 						if (val_fd == 0)
 							kill(hijo, SIGINT);

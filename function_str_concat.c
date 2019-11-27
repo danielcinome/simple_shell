@@ -31,6 +31,7 @@ char *str_concat(char *s1, char *s2, char *s3)
 
 	if (dest == NULL)
 	{
+		free(dest);
 		return (NULL);
 	}
 	else

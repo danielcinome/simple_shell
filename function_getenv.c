@@ -20,7 +20,7 @@ char *_getenv(char *name, char **env)
 			{
 				break;
 			}
-		/*free(tokenizado);*/
+		free(tokenizado);
 		i++;
 	}
 	return (tokenizado[1]);
