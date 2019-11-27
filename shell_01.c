@@ -4,7 +4,7 @@ int main(int argc, char *argv[], char **env)
 {
 	char *cont, *result;
 	char **tokenizado;
-	int status, val_fd = 0, comp = 0, i = 0;
+	int status = 0, val_fd = 0, comp = 0, i = 0;
 	ssize_t c;
 	pid_t hijo;
 
@@ -25,23 +25,23 @@ int main(int argc, char *argv[], char **env)
 				cont = read_line(&c);
 				if (c == EOF)
 				{
-					/*free(cont);*/
+					free(cont);
 					kill(hijo, SIGINT);
-					exit(1);
+					exit(0);
 				}
 				if (*cont == '\n') /* enter */
 				{
-					/*free(cont);*/
-					return (1);
+					free(cont);
+					return (0);
 				}
 				tokenizado = words(cont, " \n");
 				comp = _strcmp(tokenizado[0], "exit");
 				if (comp == 0)
 				{
-					/*free(tokenizado);
-					free(cont);*/
+					free(tokenizado);
+					free(cont);
+					exit(0);
 					kill(hijo, SIGINT);
-					exit(1);
 				}
 				comp = _strcmp(tokenizado[0], "env");
 				if (comp == 0)
@@ -57,12 +57,11 @@ int main(int argc, char *argv[], char **env)
 					if (execve(result, tokenizado, NULL) == -1)
 					{
 						free(result);
-						/*free(cont);*/
 						free(tokenizado);
 						perror(argv[0]);
 						if (val_fd == 0)
 							kill(hijo, SIGINT);
-						return (-1);
+						return (1);
 					}
 			}
 		}
@@ -71,10 +70,9 @@ int main(int argc, char *argv[], char **env)
 			wait(&status);
 			if (val_fd == 0)
 			{
-				write(1, "#cisfun$ ", 10);
 				break;
 			}
 		}
 	}
-	return (1);
+	return (0);
 }
