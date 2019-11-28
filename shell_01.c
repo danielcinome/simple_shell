@@ -21,7 +21,8 @@ int main(int argc, char *argv[], char **env)
                 {
                         if (argc == 1)
                         {
-                                write(1, "#cisfun$ ", 10);
+				if (val_fd != 0)
+                                	write(1, "#cisfun$ ", 10);
                                 cont = read_line(&c);
                                 if (c == EOF)
                                 {
