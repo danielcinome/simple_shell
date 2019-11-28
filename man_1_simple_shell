@@ -15,22 +15,67 @@ The shell can be used by typing the ./hsh in the terminal and then it will be ex
 
 .LP
 .IP Commands
-The custom shell is able to interpret the line the user enters depending on the way the user enters it.
+The custom shell is able to interpret the line the user enters depending on the way the user enters it. These are some examples of available commands:
+
+- pwd: Shows the current path
+
+	pwd [OPTION]...
+
+- ls: List files and directories
+
+	ls [OPTION]... [FILE]...
+
+- echo: Prints in the standard output
+
+	echo LONG-OPTION
+	
+- mkdir: Creates directories
+
+	mkdir [OPTION]... DIRECTORY...
+
+- vim: Text editor
+
+	vim [options] [file ..]
+
+- rm: Remove files
+
+	rm [OPTION]... FILE...
+
+- cp: Copy files
+
+	cp [OPTION]... SOURCE... DIRECTORY
+
+- mv: Move or rename files
+
+	mv [OPTION]... SOURCE... DIRECTORY
+	
+	Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+
+- touch: Create files
+
+	touch [OPTION]... FILE...
+
+- exit: causes normal process termination
+
+- env: run a program in a modified environment	
 
 .LP
 .Sh EXAMPLES
 .RE
 #cisfun$ ls
 .LP
+
+
 01_simple_shell_0.1    AUTHORS			hsh
 02_simple_shell_0.1.1  README.md		ls
 03_simple_shell_0.2    check_simple_shell.bash	simple_shell
 05_simple_shell_0.3    config
-#cisfun
 
 .LP
-echo "Hola Mundo"
+#cisfun$ echo "Hola Mundo"
 .LS
+
+
 Hola Mundo 
 
 .LP
