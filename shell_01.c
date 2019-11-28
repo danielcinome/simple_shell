@@ -59,7 +59,7 @@ int main(int argc, char *argv[], char **env)
                                                 free(tokenizado);
                                                 perror(argv[0]);
                                                 if (val_fd == 0)
-                                                        exit (1);
+                                                        exit (2);
                                                 return (1);
                                         }
                         }
@@ -68,6 +68,8 @@ int main(int argc, char *argv[], char **env)
                 {
                         wait(&status);
                         status = WEXITSTATUS(status);
+			if (status == 2)
+				exit(127);
                         if (val_fd == 0 || status == 3)
                         {
                                 break;
