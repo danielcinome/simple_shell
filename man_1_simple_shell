@@ -1,0 +1,44 @@
+.Dd 11/27/2019
+.Dt _Simple_Shell
+.Os HolbertonSchool
+.Sh NAME
+.Nm _Simple_Shell - Our own Command interpreter for holberton
+.Sh SYNOPSIS
+.Xr ./hsh [command] [arguments] [options]
+.Sh DESCRIPTION
+This is a command interpreter that will read command from the standard input and perform actions.
+
+.LP
+.IP How to use
+The shell can be used by typing the ./hsh in the terminal and then it will be executed and the user will be able to enter commands. When the shell is used this way it is called an interactive mode of use. The shell can also be executed by entering something from another terminal and pass that stdout to the stdin from the custom shell.
+
+
+.LP
+.IP Commands
+The custom shell is able to interpret the line the user enters depending on the way the user enters it.
+
+.LP
+.Sh EXAMPLES
+.RE
+#cisfun$ ls
+.LP
+01_simple_shell_0.1    AUTHORS			hsh
+02_simple_shell_0.1.1  README.md		ls
+03_simple_shell_0.2    check_simple_shell.bash	simple_shell
+05_simple_shell_0.3    config
+#cisfun
+
+.LP
+echo "Hola Mundo"
+.LS
+Hola Mundo 
+
+.LP
+.SH EXIT STATUS
+When the shell is executed correctly it will return a zero status. Otherwise it is because a failure.
+
+.Sh AUTHORS
+Written by
+.Bl -tag -width -indent
+.It Pa Camilo Andres Morales
+.It Pa Daniel Angarita Chinome
