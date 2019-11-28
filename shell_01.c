@@ -37,7 +37,7 @@ int main(int argc, char *argv[], char **env)
                                 }
                                 tokenizado = words(cont, " \t\r\n");
                                 comp = _strcmp(tokenizado[0], "exit");
-                                if (comp == 0)
+                                if (comp == 0 && tokenizado[1] == NULL)
                                 {
                                         free(tokenizado);
                                         free(cont);
