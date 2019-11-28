@@ -35,7 +35,7 @@ int main(int argc, char *argv[], char **env)
                                         free(cont);
                                         return (0);
                                 }
-                                tokenizado = words(cont, " \n");
+                                tokenizado = words(cont, " \t\r\n");
                                 comp = _strcmp(tokenizado[0], "exit");
                                 if (comp == 0)
                                 {
@@ -49,7 +49,7 @@ int main(int argc, char *argv[], char **env)
                                         while (env[i] != NULL)
                                         {
                                                 write(1, env[i], _strlen(env[i]));
-                                                write(1, "\n", 2);
+                                                write(1, "\n", 1);
                                                 i++;
                                         }
                                 }
