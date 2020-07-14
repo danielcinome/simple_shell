@@ -10,11 +10,6 @@ The Simple Shell is a Holberton School project that will test the skills in C co
  - Commands
  - Examples of use
 
-## Authors
-
- - Daniel Angarita Chinome](https://github.com/danielcinome)
- - Camilo Andres Morales](https://github.com/thecamo1509)
-
 ## Installation
 
 In order to use the shell it is necessary to install the shell first by using the following commands from your terminal:
@@ -29,6 +24,7 @@ Now you will be inside the shell directory and you will see different files. The
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
 That's it now you have your shell installed on your system
+![N|Solid](https://i.ibb.co/tbCxNYr/Captura.png)
 ## Use
 
 Now let's execute our shell in order to execute the shell just type from your terminal the command
@@ -51,8 +47,13 @@ Here we share with you a list of some commands you can use, there are many more,
  - `pwd`
  - `echo`
  - `vim`
- - `touch``
-
+ - `touch`
+ - `mkdir`
+ - `rm`
+ - `ifconfig`
+ - `mv`
+ - `cp`
+ 
 And many more...
 
 ## Examples of use
@@ -61,10 +62,11 @@ Let's take a look at these examples:
 
 ```
 #cisfun$ ls -l
-#cisfun$ echo Hola Mundo
+#cisfun$ echo Hello World
 #cisfun$ pwd
 #cisfun$ /bin/ls
 ```
+
 These commands will execute the following:
 
      -rw-r--r-- 1 root root   170 Nov 27 21:44 AUTHORS
@@ -79,15 +81,10 @@ These commands will execute the following:
     -rw-r--r-- 1 root root   661 Nov 26 23:48 l_path.c
     -rw-r--r-- 1 root root  3219 Nov 27 21:47 shell_01.c
     #cisfun$
-And:
 
-    Hola Mundo
-    #cisfun$
-    /home/camilo/Documentos/simple_shell
-    #cisfun$
-
-    AUTHORS    function_getenv.c     function_str_concat.c  function_strlen.c  functions.h  l_path.c
-    function_read_line.c  function_strcmp.c      function_token.c   hsh          shell_01.c
-    #cisfun$
-
+![N|Solid](https://i.ibb.co/HrbpG8G/Captura.png)
  ## Thanks for reading
+
+## Author
+- Daniel Chinome - [Github](https://github.com/danielcinome) / [Twitter](https://twitter.com/DanielChinome)
+- Camilo Morales -  [Github](https://github.com/thecamo1509) / [Twitter](https://twitter.com/CamiloAndres_15)
